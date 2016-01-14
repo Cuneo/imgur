@@ -10,7 +10,7 @@
 		<h2>Use case</h2>
 		<p>People use imgur to post pictures, gifs, and videos for comical reasons,support for hard times,and help with real life issues.This creates a interesting community of scumbags,comics,degenerates,and some actully decent people.What helps make this community what it is the comment system allowing users to give advice or be a real scumbag from anywhere at anytime.Along with the comment system people are able to up vote, down vote and favorite. Up vote to show that you like the post and down vote to like it. Favorite the post to store it for easy reference at a later date </p>
 		<h3>Goal</h3>
-		<p>The goal of Imgur is to be a place where like minded people can come together and share their interest and expose people to new ones.  </p>
+		<p>The goal of Imgur is to be a place where like minded people can come together and share their interest and expose people to new ones.<br>To obtain this goal imgur has an app on IOs android and a website. Allow you to post comment and vote anywhere you  want to and at any time.</p>
 
 	</body>
 
