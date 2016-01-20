@@ -48,6 +48,7 @@
 		<p>Now you can look at the various post others have created by  using the search bar.I the top right corner click on the menu icon represented by three lines on top of each other. This creates a droplist listing we'rehiring,blog,about imgur,imgur store,imgur apps,developer api,need help?,terms,privacy ad choices and to like on facebook and follow on twitter. Click  on the shuffle icon represented by two arrows crossing for Imgur to load a page of random posts.Click on the blue icon in the top left corner to upload images which gives four options browse computer, enter url,paste from clipboard,drag and drop.If you click on the down arrow on the right side of the blue icon it creates a droplist to upload images, video to gif,make a meme.</p>
 
 		<p> Once you click on a post you can scroll to view the comments. Above the first comment there is a bar that says submit comment click and start typing your comment.Click the save button underneath it to post the comment. Under the post there is a up arrow a down arrow and a heart. Use respectively to up vote, down vote, and favorite. voting increases or decrease the points counter next to the heart. Favorite will save that post to your profile for easy reference. Now go shower the internet in dank memes. </p>
+		<img src="erd.svg" alt="Imgur ERD">
 	</body>
 
 </html>
