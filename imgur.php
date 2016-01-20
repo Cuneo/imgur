@@ -26,6 +26,7 @@
 				<li>	Eating babies and various livestock</li>
 				<li>	Racism</li>
 				<li>	Crating dank memes</li>
+				<li>Your mom</li>
 				<li>	Being a troll</li>
 			</ul>
 			<br> <ul>Dislikes:
