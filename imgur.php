@@ -11,6 +11,7 @@
 			<li>Name: Mongy Gorp a.k.a 420noscopejesusXxxXXx69</li>
 			<li>Race: unknown(Possible cave troll or rawhead) </li>
 			<li>Appearance: unknown (probably very ugly and definitely smelly)  </li>
+			</ul>
 			<br> <ul>Skills:
 				<li>	Creating the woes and lamination of your females </li>
 				<li>	Making you angry</li>
@@ -37,7 +38,6 @@
 				<li>	Giving to NPR</li>
 				<li>	anything you like (unless mentioned in likes)</li>
 			</ul>
-		</ul>
 		<p>Current status: tolling on imgur and various subreddits.</p>
 		<h2>Use case</h2>
 
