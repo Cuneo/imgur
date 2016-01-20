@@ -22,14 +22,14 @@ CREATE TABLE post (
 	PRIMARY KEY (postId)
 );
 CREATE TABLE comment (
-	postId INT UNSIGNED NOT NULL,
-	profileId INT UNSIGNED NOT NULL,
-	comment VARCHAR(255) NOT NULL,
-	commentDate DATETIME NOT NULL,
+	postId      INT UNSIGNED NOT NULL,
+	profileId   INT UNSIGNED NOT NULL,
+	comment     VARCHAR(140) NOT NULL,
+	commentDate DATETIME     NOT NULL,
 	INDEX (profileId),
 	INDEX (postId),
-	FOREIGN KEY (profileId) REFERENCES profile(profileId),
-	FOREIGN KEY (postId) REFERENCES post(postId),
+	FOREIGN KEY (profileId) REFERENCES profile (profileId),
+	FOREIGN KEY (postId) REFERENCES post (postId),
 	PRIMARY KEY (profileId, postId)
 );
 CREATE TABLE favorite (
