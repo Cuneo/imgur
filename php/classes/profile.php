@@ -27,8 +27,9 @@ class Profile {
 	/**
 	 * its an email
 	 * @var string
-	private $email;
-	 * /**
+	*/
+	 private $email;
+	  /**
 	 * accessor method for profile id
 	 *
 	 * @return int value of profile id
@@ -63,6 +64,16 @@ class Profile {
 		if ($newemail === false){
 			throw(new InvalidArgumentException("email is not a string please try again"));
 		}
-
+	}
+	/**
+	 * @param $username
+	 * @throws InvalidArgumentException $newusername is not a sting
+	 */
+	public function setUsername($newusername) {
+		$newusername = filter_var($newusername, FILTER_SANITIZE_STRING);
+		if($newusername === false){
+			throw(new InvalidArgumentException("username is and invalid string you failed"));
+		}
 	}
 }
+
