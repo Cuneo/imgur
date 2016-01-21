@@ -46,34 +46,52 @@ class Profile {
 	 * @throws RangeException if profile id is negative
 	 */
 	public function setProfileId($newProfileId) {
+		// verify profile id
 		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
+		//if filter_var()frejects the new id throw an Exception
 		if($newProfileId === false) {
 			throw(new InvalidArgumentException("profile id is not an integer punk"));
 		}
 		if($newProfileId <= 0) {
 			throw(new RangeException("proflie id must be positive fool"));
 		}
+		// saving to object
+		$this->email = $newProfileId;
 	}
 
 	/**
-	 * @param $newemail
+	 * @param $newEmail
 	 * @throws InvalidArgumentException $newemail is not a string
 	 */
-	public function setemail($newemail) {
-		$newemail = filter_var($newemail, FILTER_SANITIZE_EMAIL);
-		if ($newemail === false){
+	public function setEmail($newEmail) {
+		/**
+		 * sanitizing email
+		 * if filter_var rejects newEmail throw Exception
+		 * save to object
+		 */
+		$newEmail = filter_var($newEmail, FILTER_SANITIZE_EMAIL);
+		if ($newEmail === false){
 			throw(new InvalidArgumentException("email is not a string please try again"));
 		}
+		// saving to object
+		$this->email = $newEmail;
 	}
 	/**
 	 * @param $username
 	 * @throws InvalidArgumentException $newusername is not a sting
 	 */
-	public function setUsername($newusername) {
-		$newusername = filter_var($newusername, FILTER_SANITIZE_STRING);
-		if($newusername === false){
+	public function setUsername($newUsername) {
+		/**
+		 * sanitizing newUsername
+		 * if filter_var rejects newUsername throw Exception
+		 * save to object
+		 */
+		$newUsername = filter_var($newUsername, FILTER_SANITIZE_STRING);
+		if($newUsername === false){
 			throw(new InvalidArgumentException("username is and invalid string you failed"));
 		}
+		// saving to object
+		$this->username = $newUsername;
 	}
 }
 
