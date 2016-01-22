@@ -66,7 +66,15 @@ class Profile {
 	 * @throws InvalidArgumentException if $newprofileId is not a integer
 	 * @throws RangeException if profile id is negative
 	 */
+
+
+
 	public function setProfileId($newProfileId) {
+		// base case if the profile id is null this a new tweet without a mySQL assigned id (yet)
+		if ($newProfileId === null){
+			$this->profileId = null;
+			return;
+		}
 		// verify profile id
 		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
 		//if filter_var()frejects the new id throw an Exception
@@ -114,5 +122,71 @@ class Profile {
 		// saving to object
 		$this->username = $newUsername;
 	}
+	/**
+	 * inserts this profile into mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function insert(PDO $pdo) {
+		// enforce the profileId is null
+		if($this->profileId !== null) {
+			throw(new PDOException("not a new profile"));
+		}
+		// create query template
+		$query	 = "INSERT INTO profile(profileId, profileContent, profileDate) VALUES(:profileId, :profileContent, :profileDate)";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holders in the template
+		$formattedDate = $this->profileDate->format("Y-m-d H:i:s");
+		$parameters = array("profileId" => $this->profileId, "profileContent" => $this->profileContent, "profileDate" => $formattedDate);
+		$statement->execute($parameters);
+
+		// update the null tweetId with what mySQL just gave us
+		$this->profileId = intval($pdo->lastInsertId());
+	}
+	}
+	/**
+	 * deletes this Profile from mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function delete(PDO $pdo) {
+	//enforce the profile id is not null
+	if($this->profileId === null) {
+		throw(new PDOException("unable to delete profile that does not exist"));
+	}
+	// create query template
+	$query	 = "DELETE FROM profile WHERE profileId = :profiletId";
+	$statement = $pdo->prepare($query);
+
+	// bind the member variables to the place holder in the template
+	$parameters = array("profileId" => $this->profiletId);
+	$statement->execute($parameters);
+}
+
+}
+
+	/**
+	 * updates this Tweet in mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function update(PDO $pdo) {
+		//enforce profile id is not null
+		if($this->profileId === null){
+			throw(new PDOException("unable to update profile that has no existance"));
+		}
+	// create query template
+	$query	 = "UPDATE profile SET profileId = :profileId, profileContent = :profileContent, profileDate = :profileDate WHERE profileId = :profileId";
+	$statement = $pdo->prepare($query);
+
+	// bind the member variables to the place holders in the template
+	$formattedDate = $this->profileDate->format("Y-m-d H:i:s");
+	$parameters = array("profileId" => $this->profileId, "profileContent" => $this->profileContent, "tweetDate" => $formattedDate, "profileId" => $this->profiletId);
+	$statement->execute($parameters);
+}
 }
 
