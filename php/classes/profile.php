@@ -29,7 +29,28 @@ class Profile {
 	 * @var string
 	*/
 	 private $email;
-	  /**
+
+
+	/**
+	 * constructor for this profile
+	 * @param int $newProfile new profile id
+	 * @param string $newUsername
+	 *@param string $newEmail
+	 * @throws UnexpectedValueException if any of the parameters are invalid
+	 */
+	public function __construct($newProfileId, $newUsername, $newEmail) {
+		try{
+			$this->setProfileId($newProfileId);
+			$this->setUsername($newUsername);
+			$this->setEmail($newEmail);
+		} catch(UnexpectedValueException $exception){
+			//rethrow to caller
+			throw(new UnexpectedValueException("no able to construct profile", 0, $exception));
+		}
+	}
+
+
+	/**
 	 * accessor method for profile id
 	 *
 	 * @return int value of profile id
