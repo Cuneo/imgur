@@ -27,8 +27,8 @@ class Profile {
 	/**
 	 * its an email
 	 * @var string
-	*/
-	 private $email;
+	 */
+	private $email;
 
 
 	/**
@@ -145,14 +145,14 @@ class Profile {
 		// update the null tweetId with what mySQL just gave us
 		$this->profileId = intval($pdo->lastInsertId());
 	}
-	}
-	/**
-	 * deletes this Profile from mySQL
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @throws PDOException when mySQL related errors occur
-	 **/
-	public function delete(PDO $pdo) {
+}
+/**
+ * deletes this Profile from mySQL
+ *
+ * @param PDO $pdo PDO connection object
+ * @throws PDOException when mySQL related errors occur
+ **/
+public function delete(PDO $pdo) {
 	//enforce the profile id is not null
 	if($this->profileId === null) {
 		throw(new PDOException("unable to delete profile that does not exist"));
@@ -168,17 +168,17 @@ class Profile {
 
 }
 
-	/**
-	 * updates this Tweet in mySQL
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @throws PDOException when mySQL related errors occur
-	 **/
-	public function update(PDO $pdo) {
-		//enforce profile id is not null
-		if($this->profileId === null){
-			throw(new PDOException("unable to update profile that has no existance"));
-		}
+/**
+ * updates this Tweet in mySQL
+ *
+ * @param PDO $pdo PDO connection object
+ * @throws PDOException when mySQL related errors occur
+ **/
+public function update(PDO $pdo) {
+	//enforce profile id is not null
+	if($this->profileId === null){
+		throw(new PDOException("unable to update profile that has no existence"));
+	}
 	// create query template
 	$query	 = "UPDATE profile SET profileId = :profileId, profileContent = :profileContent, profileDate = :profileDate WHERE profileId = :profileId";
 	$statement = $pdo->prepare($query);
@@ -189,4 +189,3 @@ class Profile {
 	$statement->execute($parameters);
 }
 }
-
